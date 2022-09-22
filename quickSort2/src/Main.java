@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {3,1,5,4,5,6};
+        int[] arr = {3,1,5,4,5,6,8,7};
         quickSort(arr,0,arr.length - 1);
         for (int i : arr) {
             System.out.print(i + " ");
