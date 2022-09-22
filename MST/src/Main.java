@@ -13,12 +13,8 @@ class Main {
             maxLen = Math.max(Math.max(maxLen,point1),point2);
             edges.add(new Edge(point1,point2,scanner.nextInt()));
         }
-        Collections.sort(edges, new Comparator<Edge>() {
-            public int compare(Edge edge1, Edge edge2) {
-                return edge1.len - edge2.len;
-            }
-        }); //以边数权值升序排序
-        DisjointSetUnion dsu = new DisjointSetUnion(maxLen,edges);
+        edges.sort(Comparator.comparingInt(edge -> edge.len)); //以边数权值升序排序
+        DisjointSetUnion dsu = new DisjointSetUnion(maxLen);
         int res = 0, num = 1;
         for (Edge edge : edges) {
             int len = edge.len, x = edge.x, y = edge.y;
@@ -42,7 +38,7 @@ class Main {
 class DisjointSetUnion {
     int[][] graph;
 
-    public DisjointSetUnion(int maxLen,List<Edge> edges) {
+    public DisjointSetUnion(int maxLen) {
         this.graph = new int[maxLen + 1][maxLen + 1];
     }
 
@@ -70,7 +66,6 @@ class DisjointSetUnion {
                     }
                 }
             }
-            Stack<Integer> stack = new LinkedList<>();
 
             used[temp[0]] = true;
         }

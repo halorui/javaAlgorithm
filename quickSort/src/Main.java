@@ -10,15 +10,18 @@ public class Main {
         for (int i = 0;i < len;i++) {
             arr[i] = scanner.nextInt();
         }
-        long startTime = System.currentTimeMillis(); //程序开始记录时间
+        //程序开始记录时间
+        long startTime = System.currentTimeMillis();
         quickSort(arr,0,arr.length - 1);
         System.out.println("最终结果:");
-        for (int i = 0;i < arr.length;i++) {
-            System.out.print(arr[i] + " ");
+        for (int j : arr) {
+            System.out.print(j + " ");
         }
         System.out.println();
-        long endTime = System.currentTimeMillis(); //程序结束记录时间
-        long TotalTime = (endTime - startTime);       //总消耗时间
+        //程序结束记录时间
+        long endTime = System.currentTimeMillis();
+        //总消耗时间
+        long TotalTime = (endTime - startTime);
         System.out.println("排序总消耗时间:" + TotalTime + "ms");
     }
 
@@ -38,8 +41,8 @@ public class Main {
                 swap(arr,i,index);
                 index++;
                 System.out.println("数组进行交换:");
-                for (int j = 0;j < arr.length;j++) {
-                    System.out.print(arr[j] + " ");
+                for (int k : arr) {
+                    System.out.print(k + " ");
                 }
                 System.out.println();
             }
